@@ -80,7 +80,7 @@ public class ItemClientController {
 
         Mono<Item> itemMono = Mono.just(item);
 
-        webClient.put().uri("/v1/items/{id}", id)
+        return webClient.put().uri("/v1/items/{id}", id)
                 .body(itemMono, Item.class)
                 .retrieve()
                 .bodyToMono(Item.class)
